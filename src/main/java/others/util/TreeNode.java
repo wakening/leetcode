@@ -25,12 +25,18 @@ public class TreeNode {
         return this;
     }
 
-    @Override
-    public String toString() {
-        return "TreeNode{" +
-                "left=" + (left == null ? "null" : left.toString()) +
-                ", right=" + (right == null ? "null" : right.toString()) +
-                ", val=" + val +
-                "}";
+    /** eg:
+     *          6
+     *    3           10
+     *  1   4      7    16
+     * 0 2          8     20
+     */
+    public static TreeNode buildExample() {
+        TreeNode root = TreeNode.getInstance(6).left(3).right(10);
+        root.left.left(1).right(4).left.left(0).right(2);
+        TreeNode levelTwoRight = root.right.left(7).right(16);
+        levelTwoRight.left.right(8);
+        levelTwoRight.right.right(20);
+        return root;
     }
 }
